@@ -27,8 +27,13 @@
         <li>1</li>
       </ul>
     </section>
+    <div>
+      <p>Running sum of numbers: <span id="sum">1</span></p>
+    </div>
 
     <script>
+      let sumOfNumbers = 1;
+
       function useName(event) {
         event.preventDefault();
         const inputUsername = document.getElementById('username-field');
@@ -45,6 +50,10 @@
         const randomNumber = Math.round(Math.random()*10);
         newBullet.innerText = randomNumber;
         list.append(newBullet);
+
+        sumOfNumbers += randomNumber;
+        const sumElement = document.getElementById('sum');
+        sumElement.innerText = sumOfNumbers;
       }
     </script>
   </body>
