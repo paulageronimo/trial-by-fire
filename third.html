@@ -1,0 +1,66 @@
+<html>
+  <head>
+    <title>Trial by Fire</title>
+  </head>
+  <body>
+    <a href="index.html">| V1: Basic |</a>
+    <a href="second.html">| V2: Personal Touch |</a>
+    <a href="third.html">| V3: Creative and Design |</a>
+
+    <h1 id="top-heading">Welcome!</h1>
+    <p>Submit your username, then continue to generate random numbers!</p>
+    <p>Click 'Append Random Number' to start generating.</p>
+
+    <section id="username-section">
+      <form onsubmit="useName(event)">
+        <label for="username-field">Username</label>
+        <input id="username-field" type="text" name="username" />
+        <input type="submit" />
+      </form>
+    </section>
+
+    <button onclick="appendNumberToNumberList()" style="margin-top: 24px;">Append Random Number</button>  
+    <section>
+      <h2>Number List Section</h2>
+      <ul id='numbered-list'>
+        <li>1</li>
+      </ul>
+    </section>
+    <div>
+      <p>Running sum of numbers: <span id="sum">1</span></p>
+    </div>
+
+    <script>
+      let sumOfNumbers = 1;
+
+      function useName(event) {
+        event.preventDefault();
+        const inputUsername = document.getElementById('username-field');
+        const username = inputUsername.value;
+
+        if (username === '' || username.length > 20) {
+          alert('Please enter a valid username with 1 to 20 characters.');
+        } else {
+          const topHeading = document.getElementById('top-heading');
+          topHeading.innerText = `Welcome, ${username}!`;  
+          // Hide the username form
+          const usernameSection = document.getElementById('username-section');
+          usernameSection.style.display = 'none';
+        }
+      }
+
+      function appendNumberToNumberList() {
+
+        const list = document.getElementById('numbered-list');
+        const newBullet = document.createElement('li');
+        const randomNumber = Math.round(Math.random()*10);
+        newBullet.innerText = randomNumber;
+        list.append(newBullet);
+
+        sumOfNumbers += randomNumber;
+        const sumElement = document.getElementById('sum');
+        sumElement.innerText = sumOfNumbers;
+      }
+    </script>
+  </body>
+</html>
