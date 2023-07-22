@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>Trial by Fire</title>
+    <style>
+    </style>
+  </head>
+  <body>
+    <a href="index.html">| V1 |</a>
+    <a href="second.html">| V2 |</a>
+
+    <h1 id="top-heading">Welcome!</h1>
+
+    <section>
+      <form onsubmit="useName(event)">
+        <label for="username-field">Username</label>
+        <input id="username-field" type="text" name="username" />
+        <input type="submit" />
+      </form>
+      <button onclick="appendNumberToNumberList()" style="margin-top: 24px;">Append Random Number</button>  
+    </section>
+
+    <section>
+      <h2>Number List Section</h2>
+      <ul id='numbered-list'>
+        <li>1</li>
+      </ul>
+    </section>
+
+    <script>
+      function useName(event) {
+        event.preventDefault();
+        const inputUsername = document.getElementById('username-field');
+        const username = inputUsername.value;
+
+        const topHeading = document.getElementById('top-heading');
+        topHeading.innerText = `Welcome, ${username}!`;
+      }
+
+      function appendNumberToNumberList() {
+
+        const list = document.getElementById('numbered-list');
+        const newBullet = document.createElement('li');
+        const randomNumber = Math.round(Math.random()*10);
+        newBullet.innerText = randomNumber;
+        list.append(newBullet);
+      }
+    </script>
+  </body>
+</html>
