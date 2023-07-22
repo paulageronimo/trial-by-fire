@@ -41,12 +41,15 @@
         const inputUsername = document.getElementById('username-field');
         const username = inputUsername.value;
 
-        const topHeading = document.getElementById('top-heading');
-        topHeading.innerText = `Welcome, ${username}!`;
-
-        // Hide the username form
-        const usernameSection = document.getElementById('username-section');
-        usernameSection.style.display = 'none';
+        if (username === '' || username.length > 20) {
+          alert('Please enter a valid username with 1 to 20 characters.');
+        } else {
+          const topHeading = document.getElementById('top-heading');
+          topHeading.innerText = `Welcome, ${username}!`;  
+          // Hide the username form
+          const usernameSection = document.getElementById('username-section');
+          usernameSection.style.display = 'none';
+        }
       }
 
       function appendNumberToNumberList() {
