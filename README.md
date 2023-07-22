@@ -4,6 +4,6 @@ Reproduced a site by [Ladderly](https://www.ladderly.io/), added personal touche
 
 ![](demo-pg.gif)
 
-Used Bootstrap for the final version.
+Used [Bootstrap](getbootstrap.com) for the final version.
 
 Cheers!
