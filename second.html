@@ -11,16 +11,18 @@
     <a href="second.html">| V2 |</a>
 
     <h1 id="top-heading">Welcome!</h1>
+    <p>Submit your username, then continue to generate random numbers!</p>
+    <p>Click 'Append Random Number' to start generating.</p>
 
-    <section>
+    <section id="username-section">
       <form onsubmit="useName(event)">
         <label for="username-field">Username</label>
         <input id="username-field" type="text" name="username" />
         <input type="submit" />
       </form>
-      <button onclick="appendNumberToNumberList()" style="margin-top: 24px;">Append Random Number</button>  
     </section>
 
+    <button onclick="appendNumberToNumberList()" style="margin-top: 24px;">Append Random Number</button>  
     <section>
       <h2>Number List Section</h2>
       <ul id='numbered-list'>
@@ -41,6 +43,10 @@
 
         const topHeading = document.getElementById('top-heading');
         topHeading.innerText = `Welcome, ${username}!`;
+
+        // Hide the username form
+        const usernameSection = document.getElementById('username-section');
+        usernameSection.style.display = 'none';
       }
 
       function appendNumberToNumberList() {
